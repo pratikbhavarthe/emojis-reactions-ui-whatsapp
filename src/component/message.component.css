@@ -4,13 +4,13 @@ input, button {
 
 .message-component-wrapper {
     position: relative;
-    z-index: 1;
+    z-index: 2;
 }
 
 .message-reactions-list-option-wrapper,
 .reaction-record-list-overlay-wrapper {
     cursor: default;
-    z-index: 2;
+    z-index: 1;
     position: absolute;
     bottom: 48px;
     right: 0px;
