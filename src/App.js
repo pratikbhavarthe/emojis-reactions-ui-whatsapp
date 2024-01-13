@@ -1,25 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+import './component/message.component.css';
+import MessageInput from './component/MessageInput';
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app w-[100vw] h-[100vh] flex flex-row items-center justify-center bg-zinc-800 cursor-default">
+      <div className='h-fit scroll-smooth w-auto max-h-[280px] overflow-scroll overflow-y-scroll overflow-x-hidden
+      pt-[80px]
+      '
+      >
+        <MessageInput />
+      </div>
     </div>
-  );
+  )
 }
-
-export default App;
