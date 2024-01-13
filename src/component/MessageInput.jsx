@@ -124,4 +124,23 @@ function Message({ messageText, messageTime, messageId }) {
             })
         }, 100)
     });
-    
+
+    useEffect(() => {
+        if (!document.getElementById(`message-record-list-opener_${messageId}`)) {
+            let reactionRecordListButton = document.getElementById(`message-record-list-opener_${messageId}`);
+            reactionRecordListButton?.addEventListener('focusout', () => {
+                setTimeout(() => {
+                    setReactionRecordListWrapperVisibility('none');
+                }, 300);
+            })
+        }
+    });
+
+    useEffect(() => {
+        window.onkeyup = function (keyboardEvent) {
+            if (keyboardEvent.keyCode === 27) {
+                setReactionListVisibility('none');
+                setReactionRecordListWrapperVisibility('none');
+            }
+        }
+    });
