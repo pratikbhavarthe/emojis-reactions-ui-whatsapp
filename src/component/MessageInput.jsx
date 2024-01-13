@@ -86,3 +86,42 @@ export default function MessageInput() {
         </React.Fragment>
     )
 }
+
+function Message({ messageText, messageTime, messageId }) {
+    const [reactionActionVisibilty, setReactionActionVisibility] = useState('0%');
+    const [reactionListVisibility, setReactionListVisibility] = useState('none');
+    const [reactionRecordListWrapperVisibility, setReactionRecordListWrapperVisibility] = useState('none');
+
+    const [reactionRecord, setReactionRecord] = useState([]);
+    const [addedReactionsList, setAddedReactionsList] = useState([]);
+
+    const [moreReactionsListVisibility, setMoreReactionsListVisibility] = useState('none');
+    const [moreReactionsListRef, setMoreReactionsList] = useState([]);
+
+    const reactionsList = getReactionData();
+
+    useEffect(() => {
+        getMoreReactionsData().then(res => {
+            setMoreReactionsList(res);
+        }).catch(err => console.log('emoji-api-error', err));
+    }, []);
+
+    useEffect(() => {
+        let reactionListButton = document.querySelector(`#${messageId}`);
+        reactionListButton.addEventListener('focusin', () => {
+            setTimeout(() => {
+                setReactionListVisibility('flex');
+            }, 300);
+        });
+        reactionListButton.addEventListener('focusout', () => {
+            setTimeout(() => {
+                setReactionListVisibility('none');
+            }, 300);
+        });
+        window.addEventListener('wheel', () => {
+            setTimeout(() => {
+                setReactionListVisibility('none');
+            })
+        }, 100)
+    });
+    
