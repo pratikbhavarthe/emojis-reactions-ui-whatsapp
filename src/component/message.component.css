@@ -1,0 +1,44 @@
+input, button {
+    @apply focus:border-0 focus:border-transparent focus:outline-none;
+}
+
+.message-component-wrapper {
+    position: relative;
+    z-index: 1;
+}
+
+.message-reactions-list-option-wrapper,
+.reaction-record-list-overlay-wrapper {
+    cursor: default;
+    z-index: 2;
+    position: absolute;
+    bottom: 48px;
+    right: 0px;
+}
+
+.reaction-record-list-overlay-wrapper {
+    right: 40px;
+}
+
+/* scroll-bar styling */
+/* width */
+*::-webkit-scrollbar {
+    width: 4px;
+}
+
+/* Track */
+*::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.200);
+    border-radius: 100px;
+}
+
+/* Handle */
+*::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 100px;
+}
+
+/* Handle on hover */
+*::-webkit-scrollbar-thumb:hover {
+    background: #bbb;
+}
